@@ -10,3 +10,12 @@
 * @Transactional 在测试环境使用该注解，即表示测试完就回滚了
 * ProductServiceImpl 要添加@Service注解
 * server:context-path: /sell url的前缀 http://localhost:8080/sell/buyer/product/list
+* BeanUtils.copyProperties(productInfo, productInfoVO); 复制时，字段名要保持一致
+```java
+@JsonProperty("id")
+private String productId;
+```
+* OrderMasterDao里的方法名容易写错，注意字段。
+* 价格一定要从数据库获取，而不是从前端传过来
+* 数据库对集合进行操作，最好加事务
+* BeanUtils.copyProperties注意先拷贝再设置值，不然会被覆盖

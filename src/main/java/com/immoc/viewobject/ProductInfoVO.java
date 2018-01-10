@@ -1,5 +1,6 @@
 package com.immoc.viewobject;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -12,9 +13,18 @@ import java.math.BigDecimal;
  */
 @Data
 public class ProductInfoVO {
-    private String id;
-    private String name;
-    private BigDecimal price;
-    private String description;
-    private String icon;
+    @JsonProperty("id")
+    private String productId;
+
+    @JsonProperty("name")
+    private String productName;
+
+    @JsonProperty("price")
+    private BigDecimal productPrice;
+
+    @JsonProperty("description")
+    private String productDescription;
+
+    @JsonProperty("icon")
+    private String productIcon;
 }

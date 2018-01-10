@@ -9,7 +9,7 @@ import lombok.Data;
  * Email:kingjavip@gmail.com
  */
 @Data
-public class ResultView<T> {
+public class ResultVO<T> {
     private Integer code;
     private String msg;
     private T data;
