@@ -11,8 +11,8 @@ import lombok.Getter;
 @Getter
 public enum OrderStatusEnum {
     NEW(0,"新订单"),
-    FINISHED(0,"新订单"),
-    CANCEL(0,"新订单");
+    FINISHED(1,"订单完成"),
+    CANCEL(2,"订单取消");
 
     private Integer code;
     private String msg;

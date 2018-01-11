@@ -2,6 +2,8 @@ package com.immoc.service.impl;
 
 import com.immoc.dto.OrderDTO;
 import com.immoc.entity.OrderDetail;
+import com.immoc.enums.OrderStatusEnum;
+import com.immoc.enums.PayStatusEnum;
 import com.immoc.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -66,20 +68,27 @@ public class OrderServiceImplTest {
     @Test
     public void findList() {
         Page<OrderDTO> page = orderService.findList(BUYER_OPENID, new PageRequest(0, 3));
-        Assert.assertNotEquals(0, page.getTotalPages());
         Assert.assertNotEquals(0, page.getTotalElements());
-        Assert.assertNotEquals(0, page.getSize());
     }
 
     @Test
     public void cancel() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.cancel(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),result.getPayStatus());
     }
 
     @Test
     public void finish() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.finish(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(),result.getPayStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(),result.getPayStatus());
     }
 }
