@@ -1,8 +1,10 @@
 package com.immoc.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.immoc.entity.OrderDetail;
 import com.immoc.enums.OrderStatusEnum;
 import com.immoc.enums.PayStatusEnum;
+import com.immoc.util.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -16,6 +18,7 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
     private String orderId;
     /*买家名字*/
@@ -33,8 +36,10 @@ public class OrderDTO {
     /*支付状态, 默认0未支付*/
     private Integer payStatus = PayStatusEnum.WAIT.getCode();
     /*创建时间*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
     /*修改时间*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList;

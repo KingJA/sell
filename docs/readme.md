@@ -19,3 +19,10 @@ private String productId;
 * 价格一定要从数据库获取，而不是从前端传过来
 * 数据库对集合进行操作，最好加事务
 * BeanUtils.copyProperties注意先拷贝再设置值，不然会被覆盖
+* JsonSerializer的使用,进行字段的值转换
+* @JsonInclude(JsonInclude.Include.NON_NULL)不返回null,也可以application.yml全局配置
+```xml
+  jackson:
+    default-property-inclusion: non_null
+```
+* 集合如果设置初始值List=new ArrayList则返回[],String =""
