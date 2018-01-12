@@ -1,6 +1,7 @@
 package com.immoc.exception;
 
 import com.immoc.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * Description：TODO
@@ -8,6 +9,7 @@ import com.immoc.enums.ResultEnum;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
+@Getter
 public class SellException extends RuntimeException {
     private Integer code;
 

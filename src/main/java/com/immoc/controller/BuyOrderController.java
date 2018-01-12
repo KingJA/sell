@@ -55,7 +55,6 @@ public class BuyOrderController {
         Map<String, String> map = new HashMap<>();
         map.put("orderId", createResult.getOrderId());
         return ResultVoUtil.success(map);
-
     }
 
     //订单列表
@@ -66,7 +65,6 @@ public class BuyOrderController {
             log.error("【查询订单列表】openid不能为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-
         Page<OrderDTO> result = orderService.findList(openid, new PageRequest(page, size));
         return ResultVoUtil.success(result.getContent());
     }
@@ -76,8 +74,8 @@ public class BuyOrderController {
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid, @RequestParam("orderId") String orderId) {
         return ResultVoUtil.success(buyerService.findOrderOne(openid, orderId));
     }
-    //取消订单
 
+    //取消订单
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid") String openid, @RequestParam("orderId") String orderId) {
         buyerService.cancelOrder(openid, orderId);

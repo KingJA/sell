@@ -26,3 +26,16 @@ private String productId;
     default-property-inclusion: non_null
 ```
 * 集合如果设置初始值List=new ArrayList则返回[],String =""
+
+* 异常捕捉
+```java
+@ControllerAdvice
+public class SellExceptionHandler {
+    @ExceptionHandler(value = SellException.class)
+    @ResponseBody
+    public ResultVO handlerSellerException(SellException e) {
+        return ResultVoUtil.error(e.getCode(), e.getMessage());
+    }
+}
+```
+* webstock 的客户端和服务端的应用
