@@ -1,10 +1,13 @@
 package com.immoc.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.immoc.entity.OrderDetail;
 import com.immoc.enums.OrderStatusEnum;
 import com.immoc.enums.PayStatusEnum;
+import com.immoc.util.EnumUtil;
 import com.immoc.util.serializer.Date2LongSerializer;
+
 import lombok.Data;
 
 import java.io.Serializable;
@@ -46,4 +49,14 @@ public class OrderDTO implements Serializable {
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList;
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, PayStatusEnum.class);
+    }
 }

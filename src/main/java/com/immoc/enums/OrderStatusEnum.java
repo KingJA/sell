@@ -9,7 +9,7 @@ import lombok.Getter;
  * Email:kingjavip@gmail.com
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum{
     NEW(0,"新订单"),
     FINISHED(1,"订单完成"),
     CANCEL(2,"订单取消");
