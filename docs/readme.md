@@ -40,4 +40,6 @@ public class SellExceptionHandler {
 ```
 * webstock 的客户端和服务端的应用
 * Apache ab 进行并发测试
-* freemarker
+* freemarker 语法的使用 ,list, if ,else
+* Data source rejected establishment of connection,  message from server: "Too many connections"
+* Build=>Build Project可以在修改后不用重启项目即可完成刷新Freemarker模板,html

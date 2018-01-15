@@ -1,5 +1,8 @@
 package com.immoc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.immoc.enums.ProductInfoEnum;
+import com.immoc.util.EnumUtil;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -36,4 +39,8 @@ public class ProductInfo {
     private Date createTime;
     /*修改时间*/
     private Date updateTime;
+    @JsonIgnore
+    public ProductInfoEnum getProductInfoEnum() {
+        return EnumUtil.getByCode(productStatus, ProductInfoEnum.class);
+    }
 }

@@ -9,7 +9,7 @@ import lombok.Getter;
  * Email:kingjavip@gmail.com
  */
 @Getter
-public enum ProductInfoEnum {
+public enum ProductInfoEnum implements CodeEnum{
     UP(0, "上架"), DOWN(1, "下架");
     private Integer code;
     private String message;
