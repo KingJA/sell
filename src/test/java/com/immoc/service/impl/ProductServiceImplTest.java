@@ -1,6 +1,7 @@
 package com.immoc.service.impl;
 
 import com.immoc.entity.ProductInfo;
+import com.immoc.enums.ProductInfoEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,5 +58,17 @@ public class ProductServiceImplTest {
         productInfo.setCategoryType(2);
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void onSale() {
+        ProductInfo productInfo = productService.onSale("1111111222");
+        Assert.assertTrue(productInfo.getProductStatus()== ProductInfoEnum.UP.getCode());
+
+    }
+    @Test
+    public void offSale() {
+        ProductInfo productInfo = productService.offSale("1111111222");
+        Assert.assertTrue(productInfo.getProductStatus()== ProductInfoEnum.DOWN.getCode());
     }
 }

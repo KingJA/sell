@@ -43,3 +43,4 @@ public class SellExceptionHandler {
 * freemarker 语法的使用 ,list, if ,else
 * Data source rejected establishment of connection,  message from server: "Too many connections"
 * Build=>Build Project可以在修改后不用重启项目即可完成刷新Freemarker模板,html
+* 分布式 图片上传最好搭建一个文件服务器，或者使用第三方CDN存储
