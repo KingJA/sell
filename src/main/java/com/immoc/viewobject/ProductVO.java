@@ -2,6 +2,7 @@ package com.immoc.viewobject;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +12,8 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 @Data
-public class ProductVO {
+public class ProductVO implements Serializable {
+    private static final long serialVersionUID = -2109404960009335786L;
     private String name;
     private Integer type;
     private List<ProductInfoVO> foods;
