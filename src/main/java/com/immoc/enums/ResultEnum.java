@@ -27,6 +27,7 @@ public enum ResultEnum {
     SUCCESS_FINISH(23, "完结订单成功"),
     PRODUCT_STATUS_ERROR(24, "商品状态异常"),
     SUCCESS_ONSALE(26, "商品上架成功"),
+    WEICHAT_ERROR(28, "微信公账号方面错误"),
     SUCCESS_OFFSALE(27, "商品下架成功");
     private Integer code;
     private String msg;

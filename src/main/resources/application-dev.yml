@@ -13,3 +13,7 @@ spring:
     host: 10.1.5.34
 server:
   context-path: /sell
+
+wechat:
+  mpAppId: wx7d839658461e64a9
+  mpAppSecret: f0a34449f810996cb543beca75939208
