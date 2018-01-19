@@ -40,30 +40,45 @@ public class OrderServiceImplTest {
 
     @Test
     public void create() {
-        for (int i = 0; i < 50; i++) {
-            OrderDTO orderDTO = new OrderDTO();
-            orderDTO.setBuyerName(names[new Random().nextInt(6)]);
-            orderDTO.setBuyerAddress("Jap");
-            orderDTO.setBuyerOpenid("ccc"+i);
-            orderDTO.setBuyerPhone(BUYER_PHONE);
+//        for (int i = 0; i < 50; i++) {
+//            OrderDTO orderDTO = new OrderDTO();
+//            orderDTO.setBuyerName(names[new Random().nextInt(6)]);
+//            orderDTO.setBuyerAddress("Jap");
+//            orderDTO.setBuyerOpenid("ccc"+i);
+//            orderDTO.setBuyerPhone(BUYER_PHONE);
+//
+//            List<OrderDetail> orderDetailList = new ArrayList<>();
+//
+//            OrderDetail orderDetail = new OrderDetail();
+//            orderDetail.setProductId("1111111222");
+//            orderDetail.setProductQuantity(1);
+//            orderDetailList.add(orderDetail);
+//
+//            OrderDetail o2 = new OrderDetail();
+//            o2.setProductId("123456");
+//            o2.setProductQuantity(1);
+//            orderDetailList.add(o2);
+//
+//            orderDTO.setOrderDetailList(orderDetailList);
+//            OrderDTO result = orderService.create(orderDTO);
+//        Assert.assertNotNull(result);
+//        }
 
-            List<OrderDetail> orderDetailList = new ArrayList<>();
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setBuyerName(names[new Random().nextInt(6)]);
+        orderDTO.setBuyerAddress("塘下镇塘中路");
+        orderDTO.setBuyerOpenid("myopenid");
+        orderDTO.setBuyerPhone(BUYER_PHONE);
 
-            OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setProductId("1111111222");
-            orderDetail.setProductQuantity(1);
-            orderDetailList.add(orderDetail);
+        List<OrderDetail> orderDetailList = new ArrayList<>();
 
-            OrderDetail o2 = new OrderDetail();
-            o2.setProductId("123456");
-            o2.setProductQuantity(1);
-            orderDetailList.add(o2);
-
-            orderDTO.setOrderDetailList(orderDetailList);
-            OrderDTO result = orderService.create(orderDTO);
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setProductId("1516084314695990163");
+        orderDetail.setProductQuantity(1);
+        orderDetailList.add(orderDetail);
+        orderDTO.setOrderDetailList(orderDetailList);
+        OrderDTO result = orderService.create(orderDTO);
         Assert.assertNotNull(result);
-        }
-
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.immoc.service;
 
 import com.immoc.dto.OrderDTO;
+import com.lly835.bestpay.model.PayResponse;
 
 /**
  * Description：TODO
@@ -9,5 +10,5 @@ import com.immoc.dto.OrderDTO;
  * Email:kingjavip@gmail.com
  */
 public interface PayService {
-    void create(OrderDTO orderDTO);
+    PayResponse create(OrderDTO orderDTO);
 }
