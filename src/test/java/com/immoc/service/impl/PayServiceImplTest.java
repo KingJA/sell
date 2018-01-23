@@ -1,6 +1,7 @@
 package com.immoc.service.impl;
 
 import com.immoc.dto.OrderDTO;
+import com.immoc.service.OrderService;
 import com.immoc.service.PayService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -21,9 +22,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class PayServiceImplTest {
     @Autowired
     private PayService payService;
+    @Autowired
+    private OrderService orderService;
 
     @Test
     public void create() {
-        payService.create(new OrderDTO());
+        OrderDTO orderDTO = orderService.findOne("1515573048095575584");
+        payService.create(orderDTO);
     }
 }

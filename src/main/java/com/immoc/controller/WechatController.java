@@ -1,5 +1,6 @@
 package com.immoc.controller;
 
+import com.immoc.config.ProjectUrlConfig;
 import com.immoc.enums.ResultEnum;
 import com.immoc.exception.SellException;
 import lombok.extern.slf4j.Slf4j;
@@ -29,12 +30,14 @@ public class WechatController {
     private WxMpService wxMpService;
     @Autowired
     private WxMpService wxOpenService;
+    @Autowired
+    private ProjectUrlConfig projectUrlConfig;
 
 
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //returnUrl:http://kingja.com/#
-        String url = "http://kingja.nat300.top/sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatMpAuthorize() + "/sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_BASE, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }
@@ -54,7 +57,8 @@ public class WechatController {
 
     @GetMapping("/qrAuthorize")
     public String qrAuthorize(@RequestParam("returnUrl") String returnUrl) {
-        String url = "http://kingja.nat300.top/sell/wechat/qrUserInfo";
+//http://kingja.nat300.top/sell/wechat/qrAuthorize?returnUrl=http://kingja.nat300.top/sell/seller/login
+        String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrUserInfo";
         String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QrConnectScope.SNSAPI_LOGIN, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }

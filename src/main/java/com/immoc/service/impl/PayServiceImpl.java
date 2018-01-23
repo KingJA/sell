@@ -28,13 +28,13 @@ public class PayServiceImpl implements PayService {
     public PayResponse create(OrderDTO orderDTO) {
         PayRequest payRequest = new PayRequest();
         payRequest.setOpenid(orderDTO.getBuyerOpenid());
-        payRequest.setOrderId(orderDTO.getBuyerOpenid());
+        payRequest.setOrderId(orderDTO.getOrderId());
         payRequest.setOrderName(ORDER_NAME);
         payRequest.setOrderAmount(orderDTO.getOrderAmount().doubleValue());
         payRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
         log.error("【微信支付request】request={}", JsonUtil.toJson(payRequest));
         PayResponse payResponse = bestPayService.pay(payRequest);
-        log.error("【微信支付response】repsonse={}",JsonUtil.toJson(payResponse) );
+        log.error("【微信支付payResponse】payResponse={}", JsonUtil.toJson(payResponse));
         return payResponse;
     }
 }

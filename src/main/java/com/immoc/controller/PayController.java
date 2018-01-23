@@ -46,6 +46,5 @@ public class PayController {
         map.put("payResponse", payResponse);
         map.put("returnUrl", returnUrl);
         return new ModelAndView("pay/create", map);
-
     }
 }

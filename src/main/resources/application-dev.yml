@@ -11,8 +11,8 @@ spring:
   redis:
     port: 6379
     host: 10.1.5.34
-server:
-  context-path: /sell
+#server:
+#  context-path: /sell
 
 wechat:
   mpAppId: wxd898fcb01713c658
@@ -22,5 +22,11 @@ wechat:
 
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
-  keyPath: /var/weixin_cert/h5.p12
+  keyPath: F:\new\back\sell\src\main\resources\static\h5.p12
   notifyUrl: http://kingja.nat300.top/sell/pay/notify
+
+projectUrl:
+  wechatMpAuthorize: http://kingja.nat300.top
+#  wechatOpenAuthorize: http://kingja.nat300.top
+  wechatOpenAuthorize: http://sell.springboot.cn
+  sell: http://kingja.nat300.top
